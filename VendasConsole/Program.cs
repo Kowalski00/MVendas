@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace VendasConsole
 {
@@ -25,12 +26,26 @@ namespace VendasConsole
                 switch (op)
                 {
                     case 1:
+                        int cpfExiste = 0;
                         Console.WriteLine("\n[]-- Cadastro de clientes --[]");
                         Console.WriteLine("Digite o nome do cliente: ");
                         c.Nome = Console.ReadLine();
                         Console.WriteLine("Digite o CPF do cliente: ");
                         c.Cpf = Console.ReadLine();
-                        listaCli.Add(c);
+
+                        foreach(Cliente cCpf in listaCli) {
+                            if (c.Cpf.Equals(cCpf.Cpf))
+                                cpfExiste = 1;
+                        }
+                        if (cpfExiste == 1)
+                            Console.WriteLine("\nJá existe um cliente com este CPF cadastrado.");
+                        else
+                        {
+                            if(validarCpf(c.Cpf))
+                                listaCli.Add(c);
+                            else
+                                Console.WriteLine("\nEste CPF não é válido.");
+                        }
                         c = new Cliente();
                         break;
                     case 2:
@@ -74,6 +89,41 @@ namespace VendasConsole
                 Console.Write("\n[]-- Pressione qualquer botão para continuar: ");
                 Console.ReadKey();
             } while (op != 0);
+            
+        }
+        public static Boolean validarCpf(string cpf)
+        {
+            int nCpf=0,j=10,d1,d2;
+            string sCpf = "";
+            for (int i = 0; i < 9; i++) {
+                char cCpf = cpf.ToCharArray()[i];
+                sCpf += cCpf;
+                nCpf += (j - i) * Convert.ToInt32(cpf[i].ToString());
+            }
+            d1 = nCpf % 11;
+            if (d1 < 2)
+                d1 = 0;
+            else
+                d1 = 11 - d1;
+            sCpf += d1;
+            j = 11;
+            nCpf = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 9)
+                    nCpf += d1 * 2;
+                else
+                {
+                    nCpf += (j - i) * Convert.ToInt32(cpf[i].ToString());
+                }
+            }
+            d2 = nCpf % 11;
+            if (d2< 2)
+                d2 = 0;
+            else
+                d2 = 11 - d2;
+            sCpf += d2;
+            return (sCpf.Equals(cpf));
         }
     }
 }
