@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using VendasConsole.DAO;
+using VendasConsole.Models;
 
 namespace VendasConsole.Views
 {
@@ -10,7 +11,7 @@ namespace VendasConsole.Views
         static void Main(string[] args)
         {
             int op;
-            Cliente c = new Cliente();
+            //Cliente c = new Cliente();
             
             do
             {   
@@ -27,11 +28,11 @@ namespace VendasConsole.Views
                 switch (op)
                 {
                     case 1:
-                        if (Menu.CadCli(c) != null) ListaCliente.addCliNaLista(c);
-                        c = new Cliente();
+                        CadCliente.Renderizar();
+                        //c = new Cliente();
                         break;
                     case 2:
-                        Menu.listarCli();
+                        LisCliente.Renderizar();
                         break;
                     case 3:
                         Console.WriteLine("\n[]-- Cadastro de vendedores --[]");
