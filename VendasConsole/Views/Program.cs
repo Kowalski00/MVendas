@@ -35,16 +35,16 @@ namespace VendasConsole.Views
                         LisCliente.Renderizar();
                         break;
                     case 3:
-                        Console.WriteLine("\n[]-- Cadastro de vendedores --[]");
+                        CadVendedor.Renderizar();
                         break;
                     case 4:
-                        Console.WriteLine("\n[]-- Listagem de vendedores --[]");
+                        LisVendedor.Renderizar();
                         break;
                     case 5:
-                        Console.WriteLine("\n[]-- Cadastro de produtos --[]");
+                        CadProduto.Renderizar();
                         break;
                     case 6:
-                        Console.WriteLine("\n[]-- Listagem de produtos --[]");
+                        LisProduto.Renderizar();
                         break;
                     case 7:
                         Console.WriteLine("\n[]-- Registro de venda --[]");
