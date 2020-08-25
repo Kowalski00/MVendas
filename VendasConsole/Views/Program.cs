@@ -11,7 +11,7 @@ namespace VendasConsole.Views
         static void Main(string[] args)
         {
             int op;
-            //Cliente c = new Cliente();
+            Dados.Inicializar();
             
             do
             {   
@@ -29,7 +29,6 @@ namespace VendasConsole.Views
                 {
                     case 1:
                         CadCliente.Renderizar();
-                        //c = new Cliente();
                         break;
                     case 2:
                         LisCliente.Renderizar();
@@ -47,10 +46,10 @@ namespace VendasConsole.Views
                         LisProduto.Renderizar();
                         break;
                     case 7:
-                        Console.WriteLine("\n[]-- Registro de venda --[]");
+                        CadVenda.Renderizar();
                         break;
                     case 8:
-                        Console.WriteLine("\n[]-- Listagem de vendas --[]");
+                        LisVenda.Renderizar();
                         break;
                     case 9:
                         Console.WriteLine("\n[]-- Listagem de vendas por cliente --[]");
