@@ -16,12 +16,25 @@ namespace VendasConsole.DAO
             ClienteDAO.addCliNaLista(cliente);
 
             Vendedor v = new Vendedor { 
-                Cpf = "04856363956", Nome="Manoel"
+                Cpf = "58360466033", Nome="Manoel"
+            };
+            VendedorDAO.addVenNaLista(v);
+            v = new Vendedor
+            {
+                Cpf = "04856363956",
+                Nome = "Décio"
             };
             VendedorDAO.addVenNaLista(v);
 
             Produto p = new Produto {
                 Nome = "Pedra",Preco=10.50,Qtde=5
+            };
+            ProdutoDAO.addProdNaLista(p);
+            p = new Produto
+            {
+                Nome = "Borracha",
+                Preco = 5.00,
+                Qtde = 5
             };
             ProdutoDAO.addProdNaLista(p);
         } 

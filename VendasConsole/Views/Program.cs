@@ -49,10 +49,12 @@ namespace VendasConsole.Views
                         CadVenda.Renderizar();
                         break;
                     case 8:
-                        LisVenda.Renderizar();
+                        LisVenda.Renderizar(VendaDAO.retLisVen());;
                         break;
                     case 9:
-                        Console.WriteLine("\n[]-- Listagem de vendas por cliente --[]");
+                        Console.Write("[]-- Digite um cpf: ");
+                        string cpf = Console.ReadLine();
+                        LisVenda.Renderizar(VendaDAO.ListarPorCliente(cpf));
                         break;
                     case 0:
                         Console.WriteLine("\n[]-- Saindo...");

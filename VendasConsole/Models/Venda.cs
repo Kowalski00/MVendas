@@ -11,7 +11,7 @@ namespace VendasConsole.Models
             CriadoEm = DateTime.Now;
             Cliente = new Cliente();
             Vendedor = new Vendedor();
-            Produto = new Produto();
+            Itens = new List<ItemVenda>();
         }
         public Cliente Cliente { get; set; }
 
@@ -19,8 +19,8 @@ namespace VendasConsole.Models
 
         public Vendedor Vendedor { get; set; }
 
-        public int Qtde { get; set; }
 
-        public Produto Produto { get; set; }
+
+        public List<ItemVenda> Itens { get; set; }
     }
 }
